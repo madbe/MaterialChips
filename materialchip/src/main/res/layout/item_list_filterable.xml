@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:background="@android:color/white"
+    android:clickable="true"
+    android:foreground="?attr/selectableItemBackground">
+
+    <LinearLayout
+        android:id="@+id/container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp" >
+
+        <!-- avatar -->
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/avatar"
+            android:layout_width="@dimen/item_list_avatar_size_40dp"
+            android:layout_height="@dimen/item_list_avatar_size_40dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/item_list_margin_16dp"
+            android:layout_marginStart="@dimen/item_list_margin_16dp"
+            android:src="@drawable/avatar" />
+
+        <!-- info -->
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="@dimen/item_list_margin_12dp"
+            android:layout_marginStart="@dimen/item_list_margin_12dp"
+            android:layout_marginEnd="@dimen/item_list_margin_16dp"
+            android:layout_marginRight="@dimen/item_list_margin_16dp">
+
+            <!-- name -->
+            <TextView
+                android:id="@+id/label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@android:color/black"
+                tools:text="Contact Name"/>
+
+            <!--info-->
+            <TextView
+                android:id="@+id/info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="2dp"
+                android:textSize="14sp"
+                tools:text="primary.mail@email.com"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

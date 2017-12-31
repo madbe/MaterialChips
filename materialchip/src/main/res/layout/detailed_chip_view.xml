@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="300dp"
+    android:layout_height="100dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:gravity="center"
+    android:focusableInTouchMode="true">
+
+    <!-- content -->
+    <LinearLayout
+        android:id="@+id/content"
+        android:layout_width="@dimen/detailed_chip_width_296"
+        android:layout_height="@dimen/detailed_chip_height_72"
+        android:layout_margin="@dimen/detailed_chip_margin_12dp"
+        android:background="@drawable/bg_chip_view_opened"
+        android:baselineAligned="false"
+        android:clickable="true"
+        android:elevation="8dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:outlineProvider="bounds"
+        android:paddingBottom="@dimen/detailed_chip_padding_16dp"
+        android:paddingTop="@dimen/detailed_chip_padding_16dp"
+        android:weightSum="6">
+
+        <!-- avatar icon -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/detailed_chip_margin_12dp"
+            android:layout_marginLeft="@dimen/detailed_chip_margin_12dp"
+            android:layout_marginRight="@dimen/detailed_chip_margin_12dp"
+            android:layout_marginStart="@dimen/detailed_chip_margin_12dp"
+            android:layout_weight="1.2"
+            android:gravity="center">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/avatar_icon"
+                android:layout_width="@dimen/detailed_chip_avatar_size_40dp"
+                android:layout_height="@dimen/detailed_chip_avatar_size_40dp"
+                android:src="@drawable/avatar" />
+
+        </LinearLayout>
+
+
+        <!-- info -->
+        <LinearLayout
+            android:id="@+id/info_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4.1"
+            android:orientation="vertical">
+
+            <!-- name -->
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:scrollHorizontally="true"
+                android:textSize="16sp"
+                tools:text="Contact Name" />
+
+            <!-- info -->
+            <TextView
+                android:id="@+id/info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:scrollHorizontally="true"
+                android:textSize="14sp"
+                tools:text="primary.mail@email.com" />
+
+        </LinearLayout>
+
+        <!-- delete button -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/detailed_chip_margin_14dp"
+            android:layout_marginLeft="@dimen/detailed_chip_margin_22dp"
+            android:layout_marginRight="@dimen/detailed_chip_margin_14dp"
+            android:layout_marginStart="@dimen/detailed_chip_margin_22dp"
+            android:layout_weight="0.7"
+            android:gravity="center">
+
+            <ImageButton
+                android:id="@+id/delete_button"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/delete_button"
+                android:src="@drawable/ic_cancel_white_24dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

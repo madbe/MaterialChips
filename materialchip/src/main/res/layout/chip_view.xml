@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_chip_view">
+
+    <!-- content -->
+    <LinearLayout
+        android:id="@+id/content"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/chip_layout_height"
+        android:clickable="true"
+        android:background="@drawable/ripple_chip_view">
+
+        <!-- avatar -->
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/icon"
+            android:layout_width="@dimen/chip_icon_size"
+            android:layout_height="@dimen/chip_icon_size"
+            android:src="@drawable/avatar"
+            android:visibility="gone"/>
+
+        <!-- label -->
+        <TextView
+            android:id="@+id/label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:paddingLeft="@dimen/chip_padding_8dp"
+            android:paddingStart="@dimen/chip_padding_8dp"
+            android:paddingEnd="@dimen/chip_padding_8dp"
+            android:textSize="@dimen/chip_contact_name_14sp"
+            tools:text="Contact Name"/>
+
+        <!-- remove button -->
+        <ImageButton
+            android:id="@+id/delete_button"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_cancel_grey_24dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:layout_marginLeft="@dimen/chip_margin_4dp"
+            android:layout_marginRight="@dimen/chip_margin_4dp"
+            android:contentDescription="@string/remove_button" />
+
+    </LinearLayout>
+
+</RelativeLayout>
