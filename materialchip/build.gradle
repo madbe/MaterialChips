@@ -6,7 +6,7 @@ ext {
 
     publishedGroupId = 'com.github.madbe'
     libraryName = 'MaterialChips'
-    artifact = 'material-chips'
+    artifact = 'materialchip'
 
     libraryDescription = 'Implementation of Material Design Chips component for Android. The library provides two views ChipsInput and ChipView. Added support for downloading an image Url from the Internet and supporting right-to-left languages.'
 
