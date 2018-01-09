@@ -11,7 +11,7 @@ import edu.ben.materialchip.model.ChipInterface;
  *
  */
 
-public class ContactChip implements ChipInterface {
+class ContactChip implements ChipInterface {
 
     private String id;
     private Uri avatarUri;
@@ -19,14 +19,14 @@ public class ContactChip implements ChipInterface {
     private String name;
     private String phoneNumber;
 
-    public ContactChip(String id, Uri avatarUri, String name, String phoneNumber) {
+    ContactChip(String id, Uri avatarUri, String name, String phoneNumber) {
         this.id = id;
         this.avatarUri = avatarUri;
         this.name = name;
         this.phoneNumber = phoneNumber;
     }
 
-    public ContactChip(String id, String avatarUrl, String name, String phoneNumber) {
+    ContactChip(String id, String avatarUrl, String name, String phoneNumber) {
         this.id = id;
         this.avatarUrl = avatarUrl;
         this.name = name;

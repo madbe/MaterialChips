@@ -72,12 +72,18 @@ public class ChipsInput extends ScrollViewMaxHeight {
     public ChipsInput(Context context) {
         super(context);
         mContext = context;
+        /*if (isInEditMode()) {
+            return;
+        }*/
         init(null);
     }
 
     public ChipsInput(Context context, AttributeSet attrs) {
         super(context, attrs);
         mContext = context;
+        /*if (isInEditMode()) {
+            return;
+        }*/
         init(attrs);
     }
 
@@ -280,9 +286,14 @@ public class ChipsInput extends ScrollViewMaxHeight {
         }
     }
 
-    public List<? extends ChipInterface> getSelectedChipList() {
-        return mChipsAdapter.getChipList();
+    @SuppressWarnings("unchecked")
+    public <T> List<T> getSelectedChipList() {
+        return (List<T>) mChipsAdapter.getChipList();
     }
+
+    /*public List<? extends ChipInterface> getSelectedChipList() {
+        return mChipsAdapter.getChipList();
+    }*/
 
     public String getHint() {
         return mHint;

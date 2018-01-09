@@ -61,62 +61,17 @@ public class ChipFragment extends DialogFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_chip, container, false);
-        // butter knife
-        ButterKnife.bind(this,view);
-        mContainer = container;
-        return view;
-
+        if (!getShowsDialog()) {// AVOID REQUEST FEATURE CRASH
+            mContainer = container; //For layout inflater when creating Dialog
+            return super.onCreateView(inflater, container, savedInstanceState);
+        }
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_chip, container, false);
     }
-
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mContactList = new ArrayList<>();
-
-        // get contact list
-        new RxPermissions(getActivity())
-                .request(Manifest.permission.READ_CONTACTS)
-                .subscribe(granted -> {
-                    if(granted && mContactList.size() == 0)
-                        getContactList();
-
-                }, err -> {
-                    Log.e(TAG, err.getMessage());
-                    Toast.makeText(view.getContext(), "Error get contacts, see logs", Toast.LENGTH_LONG).show();
-                });
-
-        // chips listener
-        mChipsInput.addChipsListener(new ChipsInput.ChipsListener() {
-            @Override
-            public void onChipAdded(ChipInterface chip, int newSize) {
-                Log.e(TAG, "chip added, " + newSize);
-            }
-
-            @Override
-            public void onChipRemoved(ChipInterface chip, int newSize) {
-                Log.e(TAG, "chip removed, " + newSize);
-            }
-
-            @Override
-            public void onTextChanged(CharSequence text) {
-                Log.e(TAG, "text changed: " + text.toString());
-            }
-        });
-
-        // show selected chips
-        mValidateButton.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                String listString = "";
-                for(ContactChip chip: (List<ContactChip>)  mChipsInput.getSelectedChipList()) {
-                    listString += chip.getLabel() + " (" + (chip.getInfo() != null ? chip.getInfo(): "") + ")" + ", ";
-                }
-                Toast.makeText(getContext(),"Tosat",Toast.LENGTH_SHORT).show();
-                mChipListText.setText(listString);
-            }
-        });
+        initUI();
     }
 
     @Override
@@ -134,13 +89,13 @@ public class ChipFragment extends DialogFragment {
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(getContext());
-        View view = LayoutInflater.from(getContext()).inflate(R.layout.fragment_chip,mContainer, false);
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(getActivity());
+        View view = LayoutInflater.from(getContext()).inflate(R.layout.fragment_chip, mContainer);
         dialogBuilder.setView(view);
         // butter knife
         ButterKnife.bind(this,view);
 
-        initUI();
+
         return dialogBuilder.create();
     }
 
@@ -183,7 +138,8 @@ public class ChipFragment extends DialogFragment {
             @Override
             public void onClick(View v) {
                 String listString = "";
-                for(ContactChip chip: (List<ContactChip>)  mChipsInput.getSelectedChipList()) {
+                List<ContactChip> contactChips =  mChipsInput.getSelectedChipList();
+                for(ContactChip chip: contactChips) {
                     listString += chip.getLabel() + " (" + (chip.getInfo() != null ? chip.getInfo(): "") + ")" + ", ";
                 }
                 Toast.makeText(getContext(),"Tosat",Toast.LENGTH_SHORT).show();

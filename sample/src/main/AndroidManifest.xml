@@ -18,7 +18,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ContactChipActivity"></activity>
+        <activity android:name=".ContactChipActivity" />
+        <activity android:name=".ChipExampleActivity"></activity>
     </application>
 
 </manifest>

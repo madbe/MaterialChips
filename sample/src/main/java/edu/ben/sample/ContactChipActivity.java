@@ -81,7 +81,9 @@ public class ContactChipActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String listString = "";
-                for(ContactChip chip: (List<ContactChip>)  mChipsInput.getSelectedChipList()) {
+
+                List<ContactChip> contactChips =  mChipsInput.getSelectedChipList();
+                for(ContactChip chip: contactChips) {
                     listString += chip.getLabel() + " (" + (chip.getInfo() != null ? chip.getInfo(): "") + ")" + ", ";
                 }
 
