@@ -286,6 +286,13 @@ public class ChipsInput extends ScrollViewMaxHeight {
         }
     }
 
+    /**
+     * The method get the selected contact chips as a list. The unchecked suppress warning
+     * is because the casting. Prevent it in the app (sample code for example).
+     * @param <T> return a list of Contact chip object that implement the
+     *           ChipInterface.
+     * @return List of the selected Contact Chips
+     */
     @SuppressWarnings("unchecked")
     public <T> List<T> getSelectedChipList() {
         return (List<T>) mChipsAdapter.getChipList();
